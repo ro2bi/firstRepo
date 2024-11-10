@@ -70,14 +70,20 @@ print ("")
 print ("Третя задача")
 print ("")
 
-integer = 0
-num1 = int(input("Перше число: "))
-num2 = int(input("Друге число: "))
+povt = True
 
-if type(num1) != type(integer):
-    print("Перше число записано невірно.")
-if type(num2) != type(integer):
-    print("Друге число записано невірно.")
+while povt == True:
+    try:
+        integer = 0;
+        num1 = int(input("Перше число: "))
+        num2 = int(input("Друге число: "))
 
-res = math.pow(num1, num2)
-print(num1, "у степені", num2, " = ", res)
+        if type(num1) == type(integer) and type(num2) == type(integer):
+            res = math.pow(num1, num2)
+            print(num1, "у степені", num2, " = ", res)
+            povt = False
+
+    except ValueError:
+        print("Ви ввели не число.")
+    except ZeroDivisionError:
+        print("Перше число не може бути 0 якщо друге - негативне.")
